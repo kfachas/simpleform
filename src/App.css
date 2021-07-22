@@ -1,1 +1,73 @@
 /* Other rules */
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+form {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+ul > li {
+  width: 200px;
+  margin: 20px 0;
+  display: flex;
+  margin-left: 30px;
+}
+input {
+  background-color: aliceblue;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.eye {
+  height: 30px;
+  border: none;
+}
+
+.red {
+  border: 1px solid red;
+}
+
+.stepTwo {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  background-color: lightgray;
+}
+
+.stepTwo > * {
+  margin-top: 10px;
+}
+
+.btnTwo {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.btnTwo button {
+  background-color: #5c47d2;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
