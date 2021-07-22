@@ -13,6 +13,8 @@ const Form = (props) => {
   const [eye, setEye] = useState("eye-slash");
   const [eye2, setEye2] = useState("eye-slash");
 
+  const [edit, setEdit] = useState(true);
+
   const handleUsernameChange = (event) => {
     const value = event.target.value;
     setUsername(value);
@@ -33,12 +35,22 @@ const Form = (props) => {
     e.preventDefault();
     if (password === password2 && password.length > 1) {
       setVerif("blue");
+      if (username && email) {
+        setEdit(false);
+      }
     } else if (password !== password2 && password.length > 1) {
       setVerif("red");
     }
   };
-  if (verif === "blue" && username && email) {
-    return <StepTwo name={username} email={email} password={password} />;
+  if (!edit) {
+    return (
+      <StepTwo
+        name={username}
+        email={email}
+        password={password}
+        setEdit={setEdit}
+      />
+    );
   } else {
     return (
       <div>
@@ -49,7 +61,7 @@ const Form = (props) => {
               <input
                 placeholder="Username"
                 type="text"
-                value={props.name}
+                value={username}
                 name="username"
                 onChange={handleUsernameChange}
               />
@@ -59,7 +71,7 @@ const Form = (props) => {
                 placeholder="Email"
                 type="email"
                 name="email"
-                value={props.email}
+                value={email}
                 onChange={handleEmailChange}
               />
             </li>
@@ -95,7 +107,7 @@ const Form = (props) => {
                 type={type}
                 name="password"
                 className={verif}
-                value={props.password}
+                value={password}
                 onChange={handlePasswordChange}
               ></input>
             </li>
@@ -131,7 +143,7 @@ const Form = (props) => {
                 type={type2}
                 name="password2"
                 className={verif}
-                value={props.password}
+                value={password2}
                 onChange={handlePassword2Change}
               />
             </li>
